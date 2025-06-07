@@ -38,10 +38,16 @@ if uploaded_file is not None:
         data, fs = load_audio(uploaded_file)
         st.audio(uploaded_file)
 
-        st.subheader("Adjust Frequency Bands")
-        bass = st.slider("Bass (60–250 Hz)", 0.0, 2.0, 1.0, 0.1)
-        mid = st.slider("Midrange (250 Hz – 4 kHz)", 0.0, 2.0, 1.0, 0.1)
-        treble = st.slider("Treble (4–10 kHz)", 0.0, 2.0, 1.0, 0.1)
+        st.subheader("🎚️ Equalizer Controls")
+
+        st.markdown("#### 🎵 **Bass (60–250 Hz)**")
+        bass = st.slider("", 0.0, 2.0, 1.0, 0.1, key="bass_slider")
+
+        st.markdown("#### 🎶 **Midrange (250 Hz – 4 kHz)**")
+        mid = st.slider("", 0.0, 2.0, 1.0, 0.1, key="mid_slider")
+
+        st.markdown("#### 🎺 **Treble (4–10 kHz)**")
+        treble = st.slider("", 0.0, 2.0, 1.0, 0.1, key="treble_slider")
 
         output = apply_equalizer(data, fs, [bass, mid, treble])
 
